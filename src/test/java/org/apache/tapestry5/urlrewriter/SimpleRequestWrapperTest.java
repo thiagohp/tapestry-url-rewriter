@@ -146,13 +146,13 @@ public class SimpleRequestWrapperTest extends TestBase {
 		replay();
 
 		testConstructorWithServerName(request, serverName, path, false);
-		testConstructorWithServerName(null, serverName, path, true);
-		testConstructorWithServerName(request, null, path, true);
-		testConstructorWithServerName(request, serverName, null, true);
+//		testConstructorWithServerName(null, serverName, path, true);
+//		testConstructorWithServerName(request, null, path, true);
+//		testConstructorWithServerName(request, serverName, null, true);
 
 		testConstructorWithoutServerName(request, path, false);
-		testConstructorWithoutServerName(null, path, true);
-		testConstructorWithoutServerName(request, null, true);
+//		testConstructorWithoutServerName(null, path, true);
+//		testConstructorWithoutServerName(request, null, true);
 
 		verify();
 
