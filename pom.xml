@@ -5,7 +5,7 @@
 	<groupId>org.apache.tapestry</groupId>
 	<artifactId>tapestry-url-rewriter</artifactId>
 	<name>Tapestry URL Rewriter</name>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<url>https://github.com/thiagohp/tapestry-url-rewriter</url>
 	<properties>
 		<tapestry-version>5.3.3</tapestry-version>
@@ -39,4 +39,16 @@
 			<comments>A business-friendly OSS license</comments>
 		</license>
 	</licenses>
+	<developers>
+		<developer>
+			<name>Thiago H. de Paula Figueiredo</name>
+			<id>thiagohp</id>
+			<timezone>GMT-3</timezone>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:git@github.com:thiagohp/tapestry-url-rewriter.git</connection>
+		<url>https://github.com/thiagohp/tapestry-url-rewriter</url>
+		<developerConnection>scm:git:git@github.com:thiagohp/tapestry-url-rewriter.git</developerConnection>
+	</scm>
 </project>
