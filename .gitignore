@@ -6,3 +6,7 @@ target
 test-output
 .classpath
 .project
+*.class
+*.jar
+*.war
+*.ear
