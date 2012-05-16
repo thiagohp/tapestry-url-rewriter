@@ -49,15 +49,15 @@ public class IntegrationTests extends SeleniumTestCase {
 
 	}
 
-	@Test
-	public void test_url_rewriting_with_virtual_host() {
-
-		final String url = String.format("http://%s:%d", SUBDOMAIN, JETTY_PORT);
-		open(url);
-		assertTextPresent("End of maze. URL rewriting works :).");
-		assertTextPresent("Login: " + LOGIN);
-
-	}
+//	@Test
+//	public void test_url_rewriting_with_virtual_host() {
+//
+//		final String url = String.format("http://%s:%d", SUBDOMAIN, JETTY_PORT);
+//		open(url);
+//		assertTextPresent("End of maze. URL rewriting works :).");
+//		assertTextPresent("Login: " + LOGIN);
+//
+//	}
 
 	@Test
 	public void test_url_rewriter_without_virtual_host() {
