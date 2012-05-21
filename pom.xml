@@ -4,7 +4,7 @@
 	<groupId>br.com.arsmachina</groupId>
 	<artifactId>tapestry-url-rewriter</artifactId>
 	<name>Tapestry URL Rewriter</name>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<url>https://github.com/thiagohp/tapestry-url-rewriter</url>
 	<properties>
 		<tapestry-version>5.3.3</tapestry-version>
