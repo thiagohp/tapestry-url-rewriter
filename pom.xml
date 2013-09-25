@@ -4,21 +4,32 @@
 	<groupId>br.com.arsmachina</groupId>
 	<artifactId>tapestry-url-rewriter</artifactId>
 	<name>Tapestry URL Rewriter</name>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 	<url>https://github.com/thiagohp/tapestry-url-rewriter</url>
 	<properties>
 		<tapestry-version>5.3.3</tapestry-version>
 	</properties>
-	<description>The old URL rewriter API that was deprecated in Tapestry 5.2 and removed in Tapestry 5.3.</description>
+	<description>
+		The old URL rewriter API that was deprecated in Tapestry 5.2 and removed in Tapestry 5.3.
+		Since tapestry-url-rewriter 2.0.0, the outgoing URL rewrite (Link rewrite) was removed,
+		leaving just the incoming URL rewrite support.
+	</description>
 	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
+		<groupId>br.com.arsmachina</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.2.11-SNAPSHOT</version>
+		<relativePath>../parent</relativePath>
 	</parent>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.tapestry</groupId>
 			<artifactId>tapestry-core</artifactId>
+			<version>${tapestry-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tapestry</groupId>
+			<artifactId>tapestry-ioc</artifactId>
 			<version>${tapestry-version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -93,4 +104,11 @@
 			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>apache-staging</id>
+			<name>Apache staging</name>
+			<url>https://repository.apache.org/content/groups/staging</url>
+		</repository>
+	</repositories>
 </project>

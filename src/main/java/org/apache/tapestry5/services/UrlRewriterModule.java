@@ -14,17 +14,10 @@
 
 package org.apache.tapestry5.services;
 
-import java.lang.reflect.Method;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.tapestry5.internal.services.ComponentEventLinkEncoderMethodAdvice;
 import org.apache.tapestry5.internal.services.URLRewriterImpl;
 import org.apache.tapestry5.internal.services.URLRewriterRequestFilter;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
-import org.apache.tapestry5.ioc.services.AspectDecorator;
-import org.apache.tapestry5.ioc.services.AspectInterceptorBuilder;
 
 /**
  * Tapestry-IoC module for the URL Rewriter API.
@@ -35,6 +28,11 @@ public class UrlRewriterModule {
 		binder.bind(URLRewriter.class, URLRewriterImpl.class);
 	}
 
+	/**
+	 * Contributes the URL rewriter request filter if there are URL rewriter rules.
+	 * @param configuration an {@link OrderedConfiguration}.
+	 * @param urlRewriter an {@link URLRewriter}.
+	 */
 	public void contributeRequestHandler(
 			OrderedConfiguration<RequestFilter> configuration,
 			URLRewriter urlRewriter) {
@@ -45,53 +43,9 @@ public class UrlRewriterModule {
 
 			URLRewriterRequestFilter urlRewriterRequestFilter = new URLRewriterRequestFilter(
 					urlRewriter);
-			configuration.add("URLRewriter", urlRewriterRequestFilter,
-					"before:StaticFiles");
+			configuration.add("URLRewriter", urlRewriterRequestFilter, "before:StaticFiles");
 
 		}
-
-	}
-
-	/**
-	 * @throws Exception
-	 * @since 5.1.0.2
-	 */
-	public static ComponentEventLinkEncoder decorateComponentEventLinkEncoder(
-			ComponentEventLinkEncoder encoder, URLRewriter urlRewriter,
-			Request request, HttpServletRequest httpServletRequest,
-			Response response, AspectDecorator aspectDecorator,
-			ContextPathEncoder contextPathEncoder, BaseURLSource baseURLSource)
-			throws Exception {
-
-		// no rules, no link rewriting.
-		if (!urlRewriter.hasLinkRules()) {
-			return null;
-		}
-
-		ComponentEventLinkEncoderMethodAdvice pageLinkAdvice = new ComponentEventLinkEncoderMethodAdvice(
-				urlRewriter, request, httpServletRequest, response, true,
-				contextPathEncoder, baseURLSource);
-
-		ComponentEventLinkEncoderMethodAdvice eventLinkAdvice = new ComponentEventLinkEncoderMethodAdvice(
-				urlRewriter, request, httpServletRequest, response, false,
-				contextPathEncoder, baseURLSource);
-
-		Class<ComponentEventLinkEncoder> clasz = ComponentEventLinkEncoder.class;
-
-		Method createPageRenderLink = clasz.getMethod("createPageRenderLink",
-				PageRenderRequestParameters.class);
-
-		Method createComponentEventLink = clasz.getMethod(
-				"createComponentEventLink",
-				ComponentEventRequestParameters.class, boolean.class);
-
-		final AspectInterceptorBuilder<ComponentEventLinkEncoder> builder = aspectDecorator
-				.createBuilder(clasz, encoder, "Link rewriting");
-
-		builder.adviseMethod(createComponentEventLink, eventLinkAdvice);
-		builder.adviseMethod(createPageRenderLink, pageLinkAdvice);
-
-		return builder.build();
 
 	}
 

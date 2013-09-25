@@ -22,9 +22,7 @@ import org.apache.tapestry5.services.Response;
 import org.apache.tapestry5.services.URLRewriter;
 
 /**
- * <code>RequestFilter</code> that applies the URL rewriting rules to requests.
- * 
- * @see org.apache.tapestry5.services.RequestFilter
+ * {@link RequestFilter} that applies the URL rewriting rules to requests.
  */
 public class URLRewriterRequestFilter implements RequestFilter {
 
@@ -33,8 +31,7 @@ public class URLRewriterRequestFilter implements RequestFilter {
 	/**
 	 * Single constructor of this class.
 	 * 
-	 * @param urlRewriter
-	 *            um {@link URLRewriter}. It cannot be null.
+	 * @param urlRewriter an {@link URLRewriter}. It cannot be null.
 	 */
 	public URLRewriterRequestFilter(URLRewriter urlRewriter) {
 		assert urlRewriter != null;

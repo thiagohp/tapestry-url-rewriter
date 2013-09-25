@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Class that wraps an {@linkplain Request}, delegating all its methods.
+ * Class that wraps an {@link Request}, delegating all its methods to it.
  * 
  * @since 5.1.0.1
  */
@@ -33,7 +33,7 @@ public class DelegatingRequest implements Request {
 	}
 
 	/**
-	 * Constructor that receives a {@linkplain Request}.
+	 * Constructor that receives a {@link Request}.
 	 * 
 	 * @param request
 	 *            a {@link Request}. It cannot be null.

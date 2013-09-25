@@ -17,7 +17,7 @@ import org.apache.tapestry5.services.DelegatingRequest;
 import org.apache.tapestry5.services.Request;
 
 /**
- * Class that wraps a {@linkplain Request}. It delegates all methods except ones
+ * Class that wraps a {@link Request}. It delegates all methods except ones
  * related to URL rewriting.
  */
 public class SimpleRequestWrapper extends DelegatingRequest {

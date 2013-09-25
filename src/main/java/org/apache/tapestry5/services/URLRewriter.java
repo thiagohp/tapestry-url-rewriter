@@ -14,52 +14,31 @@
 
 package org.apache.tapestry5.services;
 
-import org.apache.tapestry5.urlrewriter.URLRewriteContext;
 
 /**
- * Service that implements URL and link rewriting.
- * 
+ * Service that implements URL rewriting.
  * 
  * @since 5.1.0.2
  */
 public interface URLRewriter {
+	
 	/**
-	 * Processes an incoming {@linkplain org.apache.tapestry5.services.Request}.
+	 * Processes an incoming {@link org.apache.tapestry5.services.Request}.
 	 * This method must check if they need to rewrite this request. If no, it
 	 * must return the received request unchanged. This method cannot return
 	 * null.
 	 * 
-	 * @param request
-	 *            a {@link org.apache.tapestry5.services.Request}.
+	 * @param request a {@link org.apache.tapestry5.services.Request}.
 	 * @return request a {@link org.apache.tapestry5.services.Request}. It
 	 *         cannot be null.
 	 */
 	Request processRequest(Request request);
 
 	/**
-	 * Processes rules for rewriting links.
+	 * Tells whether there are registered URL rewrite rules.
 	 * 
-	 * @param request
-	 *            the request to examine
-	 * @param context
-	 *            the context providing additional information for rewriting
-	 * @return the original request if the URLRewriter does nothing, a modified
-	 *         request otherwise, but never null
-	 */
-	Request processLink(Request request, URLRewriteContext context);
-
-	/**
-	 * 
-	 * 
-	 * @return true if the urlrewriter has any rules for rewriting inbound
-	 *         request urls
+	 * @return <code>true</code> if there are URL rewrite rules, <code>false</code> otherwise.
 	 */
 	boolean hasRequestRules();
-
-	/**
-	 * @return true if the URLRewriter has any rules for rewriting outbound
-	 *         links.
-	 */
-	boolean hasLinkRules();
 
 }

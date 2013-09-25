@@ -14,19 +14,15 @@
 
 package org.apache.tapestry5.internal.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.tapestry5.ioc.annotations.UsesOrderedConfiguration;
-import org.apache.tapestry5.services.ComponentEventRequestParameters;
-import org.apache.tapestry5.services.PageRenderRequestParameters;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.URLRewriter;
-import org.apache.tapestry5.urlrewriter.URLRewriteContext;
 import org.apache.tapestry5.urlrewriter.URLRewriterRule;
 
 /**
- * Default {@linkplain org.apache.tapestry5.services.URLRewriter}
+ * Default {@link org.apache.tapestry5.services.URLRewriter}
  * implementation.
  * 
  * @since 5.1.0.2
@@ -35,8 +31,7 @@ import org.apache.tapestry5.urlrewriter.URLRewriterRule;
 public class URLRewriterImpl implements URLRewriter {
 
 	private static final String URL_REWRITER_RULE_PROCESS_MUST_NOT_RETURN_NULL = "URLRewriterRule.process() must not return null";
-	final private List<URLRewriterRule> incomingRules;
-	final private List<URLRewriterRule> outgoingRules;
+	final private List<URLRewriterRule> rules;
 
 	/**
 	 * Single constructor of this class.
@@ -46,77 +41,22 @@ public class URLRewriterImpl implements URLRewriter {
 	 *            be null.
 	 */
 	public URLRewriterImpl(List<URLRewriterRule> rules) {
-
 		assert rules != null;
-		this.incomingRules = new ArrayList<URLRewriterRule>();
-		this.outgoingRules = new ArrayList<URLRewriterRule>();
-		for (URLRewriterRule rule : rules) {
-			switch (rule.applicability()) {
-			case INBOUND:
-				incomingRules.add(rule);
-				break;
-			case OUTBOUND:
-				outgoingRules.add(rule);
-				break;
-			default:
-				incomingRules.add(rule);
-				outgoingRules.add(rule);
-			}
-		}
+		this.rules = rules;
 	}
 
 	public Request processRequest(Request request) {
-		request = process(request, incomingRules, new URLRewriteContext() {
-			public boolean isIncoming() {
-				return true;
-			}
-
-			public PageRenderRequestParameters getPageParameters() {
-				return null;
-			}
-
-			public ComponentEventRequestParameters getComponentEventParameters() {
-				return null;
-			}
-		});
-		if (request == null) {
-			throw new NullPointerException(
-					URL_REWRITER_RULE_PROCESS_MUST_NOT_RETURN_NULL);
-		}
-		return request;
-	}
-
-	private Request process(Request request, List<URLRewriterRule> rules,
-			URLRewriteContext context) {
-
 		for (URLRewriterRule rule : rules) {
-
-			request = rule.process(request, context);
+			request = rule.process(request);
 			if (request == null) {
-				return null;
+				throw new RuntimeException(URL_REWRITER_RULE_PROCESS_MUST_NOT_RETURN_NULL);
 			}
-
-		}
-
-		return request;
-
-	}
-
-	public Request processLink(Request request, URLRewriteContext context) {
-		request = process(request, outgoingRules, context);
-		if (request == null) {
-			throw new NullPointerException(
-					URL_REWRITER_RULE_PROCESS_MUST_NOT_RETURN_NULL);
 		}
 		return request;
 	}
 
 	public boolean hasRequestRules() {
-		return !incomingRules.isEmpty();
-	}
-
-	public boolean hasLinkRules() {
-		return !outgoingRules.isEmpty();
+		return !rules.isEmpty();
 	}
 
 }

@@ -22,21 +22,14 @@ import org.apache.tapestry5.services.Request;
 public interface URLRewriterRule {
 
 	/**
-	 * Processes a {@linkplain org.apache.tapestry5.services.Request}.
+	 * Processes a {@link org.apache.tapestry5.services.Request}.
 	 * Implementations of this method must check if they need to rewrite this
 	 * request. If no, it must return the received request unchanged. This
 	 * method cannot return null.
 	 * 
-	 * @param request
-	 *            a {@link org.apache.tapestry5.services.Request}.
+	 * @param request a {@link org.apache.tapestry5.services.Request}.
 	 * @return request a {@link org.apache.tapestry5.services.Request}.
 	 */
-	Request process(Request request, URLRewriteContext context);
+	Request process(Request request);
 
-	/**
-	 * Defines when this rule will be applied.
-	 * 
-	 * @return a {@link RewriteRuleApplicability} instance.
-	 */
-	RewriteRuleApplicability applicability();
 }
