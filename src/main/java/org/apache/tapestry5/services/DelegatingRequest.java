@@ -180,6 +180,14 @@ public class DelegatingRequest implements Request {
 	}
 
 	/**
+	 * @return
+	 * @see org.apache.tapestry5.services.Request#isSessionInvalidated()
+	 */
+	public List<String> getAttributeNames() {
+		return request.getAttributeNames();
+	}
+
+	/**
 	 * @param name
 	 * @param value
 	 * @see org.apache.tapestry5.services.Request#setAttribute(java.lang.String,
@@ -219,6 +227,14 @@ public class DelegatingRequest implements Request {
 	 */
 	public String getRemoteHost() {
 		return request.getRemoteHost();
+	}
+
+	/**
+	 * @return
+	 * @see org.apache.tapestry5.services.Request#isSessionInvalidated()
+	 */
+	public boolean isSessionInvalidated() {
+		return request.isSessionInvalidated();
 	}
 
 }
