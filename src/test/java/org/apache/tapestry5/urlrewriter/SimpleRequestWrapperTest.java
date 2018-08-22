@@ -25,7 +25,7 @@ import org.apache.tapestry5.services.Session;
 import org.testng.annotations.Test;
 
 /**
- * Tests {@link org.apache.tapestry5.urlrewritter.SimpleRequestWrapper} and
+ * Tests {@link org.apache.tapestry5.urlrewriter.SimpleRequestWrapper} and
  * {@link DelegatingRequest}.
  */
 public class SimpleRequestWrapperTest extends TestBase {
