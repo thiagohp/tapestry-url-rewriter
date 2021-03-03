@@ -20,7 +20,7 @@ import java.util.List;
 import org.apache.tapestry5.ioc.annotations.UsesOrderedConfiguration;
 import org.apache.tapestry5.services.ComponentEventRequestParameters;
 import org.apache.tapestry5.services.PageRenderRequestParameters;
-import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.http.services.Request;
 import org.apache.tapestry5.services.URLRewriter;
 import org.apache.tapestry5.urlrewriter.URLRewriteContext;
 import org.apache.tapestry5.urlrewriter.URLRewriterRule;

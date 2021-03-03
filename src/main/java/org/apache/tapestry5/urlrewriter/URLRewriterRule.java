@@ -13,7 +13,7 @@
 // limitations under the License.
 package org.apache.tapestry5.urlrewriter;
 
-import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.http.services.Request;
 
 /**
  * Defines an URL rewriting rule. It is executed before any Tapestry request
@@ -22,14 +22,14 @@ import org.apache.tapestry5.services.Request;
 public interface URLRewriterRule {
 
 	/**
-	 * Processes a {@linkplain org.apache.tapestry5.services.Request}.
+	 * Processes a {@linkplain org.apache.tapestry5.http.services.Request}.
 	 * Implementations of this method must check if they need to rewrite this
 	 * request. If no, it must return the received request unchanged. This
 	 * method cannot return null.
 	 * 
 	 * @param request
-	 *            a {@link org.apache.tapestry5.services.Request}.
-	 * @return request a {@link org.apache.tapestry5.services.Request}.
+	 *            a {@link org.apache.tapestry5.http.services.Request}.
+	 * @return request a {@link org.apache.tapestry5.http.services.Request}.
 	 */
 	Request process(Request request, URLRewriteContext context);
 

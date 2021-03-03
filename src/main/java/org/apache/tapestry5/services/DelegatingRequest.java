@@ -17,6 +17,9 @@ package org.apache.tapestry5.services;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.tapestry5.http.services.Request;
+import org.apache.tapestry5.http.services.Session;
+
 /**
  * Class that wraps an {@linkplain Request}, delegating all its methods.
  * 
@@ -56,7 +59,7 @@ public class DelegatingRequest implements Request {
 	/**
 	 * @param create
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getSession(boolean)
+	 * @see org.apache.tapestry5.http.services.Request#getSession(boolean)
 	 */
 	public Session getSession(boolean create) {
 		return request.getSession(create);
@@ -64,7 +67,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getContextPath()
+	 * @see org.apache.tapestry5.http.services.Request#getContextPath()
 	 */
 	public String getContextPath() {
 		return request.getContextPath();
@@ -72,7 +75,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getParameterNames()
+	 * @see org.apache.tapestry5.http.services.Request#getParameterNames()
 	 */
 	public List<String> getParameterNames() {
 		return request.getParameterNames();
@@ -81,7 +84,7 @@ public class DelegatingRequest implements Request {
 	/**
 	 * @param name
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getParameter(java.lang.String)
+	 * @see org.apache.tapestry5.http.services.Request#getParameter(java.lang.String)
 	 */
 	public String getParameter(String name) {
 		return request.getParameter(name);
@@ -90,7 +93,7 @@ public class DelegatingRequest implements Request {
 	/**
 	 * @param name
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getParameters(java.lang.String)
+	 * @see org.apache.tapestry5.http.services.Request#getParameters(java.lang.String)
 	 */
 	public String[] getParameters(String name) {
 		return request.getParameters(name);
@@ -98,7 +101,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getPath()
+	 * @see org.apache.tapestry5.http.services.Request#getPath()
 	 */
 	public String getPath() {
 		return request.getPath();
@@ -106,7 +109,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getLocale()
+	 * @see org.apache.tapestry5.http.services.Request#getLocale()
 	 */
 	public Locale getLocale() {
 		return request.getLocale();
@@ -114,7 +117,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getHeaderNames()
+	 * @see org.apache.tapestry5.http.services.Request#getHeaderNames()
 	 */
 	public List<String> getHeaderNames() {
 		return request.getHeaderNames();
@@ -123,7 +126,7 @@ public class DelegatingRequest implements Request {
 	/**
 	 * @param name
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getDateHeader(java.lang.String)
+	 * @see org.apache.tapestry5.http.services.Request#getDateHeader(java.lang.String)
 	 */
 	public long getDateHeader(String name) {
 		return request.getDateHeader(name);
@@ -132,7 +135,7 @@ public class DelegatingRequest implements Request {
 	/**
 	 * @param name
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getHeader(java.lang.String)
+	 * @see org.apache.tapestry5.http.services.Request#getHeader(java.lang.String)
 	 */
 	public String getHeader(String name) {
 		return request.getHeader(name);
@@ -140,7 +143,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#isXHR()
+	 * @see org.apache.tapestry5.http.services.Request#isXHR()
 	 */
 	public boolean isXHR() {
 		return request.isXHR();
@@ -148,7 +151,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#isSecure()
+	 * @see org.apache.tapestry5.http.services.Request#isSecure()
 	 */
 	public boolean isSecure() {
 		return request.isSecure();
@@ -156,7 +159,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getServerName()
+	 * @see org.apache.tapestry5.http.services.Request#getServerName()
 	 */
 	public String getServerName() {
 		return request.getServerName();
@@ -164,7 +167,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#isRequestedSessionIdValid()
+	 * @see org.apache.tapestry5.http.services.Request#isRequestedSessionIdValid()
 	 */
 	public boolean isRequestedSessionIdValid() {
 		return request.isRequestedSessionIdValid();
@@ -173,7 +176,7 @@ public class DelegatingRequest implements Request {
 	/**
 	 * @param name
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getAttribute(java.lang.String)
+	 * @see org.apache.tapestry5.http.services.Request#getAttribute(java.lang.String)
 	 */
 	public Object getAttribute(String name) {
 		return request.getAttribute(name);
@@ -182,7 +185,7 @@ public class DelegatingRequest implements Request {
 	/**
 	 * @param name
 	 * @param value
-	 * @see org.apache.tapestry5.services.Request#setAttribute(java.lang.String,
+	 * @see org.apache.tapestry5.http.services.Request#setAttribute(java.lang.String,
 	 *      java.lang.Object)
 	 */
 	public void setAttribute(String name, Object value) {
@@ -191,7 +194,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getMethod()
+	 * @see org.apache.tapestry5.http.services.Request#getMethod()
 	 */
 	public String getMethod() {
 		return request.getMethod();
@@ -199,7 +202,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getLocalPort()
+	 * @see org.apache.tapestry5.http.services.Request#getLocalPort()
 	 */
 	public int getLocalPort() {
 		return request.getLocalPort();
@@ -207,7 +210,7 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getServerPort()
+	 * @see org.apache.tapestry5.http.services.Request#getServerPort()
 	 */
 	public int getServerPort() {
 		return request.getServerPort();
@@ -215,10 +218,18 @@ public class DelegatingRequest implements Request {
 
 	/**
 	 * @return
-	 * @see org.apache.tapestry5.services.Request#getRemoteHost()
+	 * @see org.apache.tapestry5.http.services.Request#getRemoteHost()
 	 */
 	public String getRemoteHost() {
 		return request.getRemoteHost();
 	}
+
+    public List<String> getAttributeNames() {
+        return request.getAttributeNames();
+    }
+
+    public boolean isSessionInvalidated() {
+        return request.isSessionInvalidated();
+    }
 
 }

@@ -4,17 +4,12 @@
 	<groupId>br.com.arsmachina</groupId>
 	<artifactId>tapestry-url-rewriter</artifactId>
 	<name>Tapestry URL Rewriter</name>
-	<version>1.0.1</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<url>https://github.com/thiagohp/tapestry-url-rewriter</url>
 	<properties>
-		<tapestry-version>5.3.3</tapestry-version>
+		<tapestry-version>5.7.0-SNAPSHOT</tapestry-version>
 	</properties>
 	<description>The old URL rewriter API that was deprecated in Tapestry 5.2 and removed in Tapestry 5.3.</description>
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.tapestry</groupId>
@@ -57,19 +52,19 @@
 	</scm>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-gpg-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>sign-artifacts</id> -->
+<!-- 						<phase>verify</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>sign</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -87,10 +82,26 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>8</source>
+					<target>8</target>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	
+	<distributionManagement>
+		<site>
+			<id>www.pubfactory.com</id>
+			<url>file:///tmp/pubfactory/</url>
+		</site>
+
+		<repository>
+			<id>ifactory-releases</id>
+			<url>https://nexus.pubfactory.com/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>ifactory-snapshots</id>
+			<url>https://nexus.pubfactory.com/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>

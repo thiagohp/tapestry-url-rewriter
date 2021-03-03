@@ -13,15 +13,17 @@
 // limitations under the License.
 package org.apache.tapestry5.urlrewriter;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import org.apache.tapestry5.ioc.test.TestBase;
+import org.apache.tapestry5.http.services.Request;
+import org.apache.tapestry5.http.services.Session;
 import org.apache.tapestry5.services.DelegatingRequest;
-import org.apache.tapestry5.services.Request;
-import org.apache.tapestry5.services.Session;
+import org.apache.tapestry5.test.ioc.TestBase;
 import org.testng.annotations.Test;
 
 /**

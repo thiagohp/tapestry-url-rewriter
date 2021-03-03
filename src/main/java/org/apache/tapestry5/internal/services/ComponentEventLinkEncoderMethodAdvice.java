@@ -16,16 +16,16 @@ package org.apache.tapestry5.internal.services;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.tapestry5.Link;
+import org.apache.tapestry5.http.Link;
+import org.apache.tapestry5.http.services.BaseURLSource;
+import org.apache.tapestry5.http.services.Request;
+import org.apache.tapestry5.http.services.Response;
 import org.apache.tapestry5.plastic.MethodAdvice;
 import org.apache.tapestry5.plastic.MethodInvocation;
-import org.apache.tapestry5.services.BaseURLSource;
 import org.apache.tapestry5.services.ComponentEventLinkEncoder;
 import org.apache.tapestry5.services.ComponentEventRequestParameters;
 import org.apache.tapestry5.services.ContextPathEncoder;
 import org.apache.tapestry5.services.PageRenderRequestParameters;
-import org.apache.tapestry5.services.Request;
-import org.apache.tapestry5.services.Response;
 import org.apache.tapestry5.services.URLRewriter;
 import org.apache.tapestry5.urlrewriter.SimpleRequestWrapper;
 import org.apache.tapestry5.urlrewriter.URLRewriteContext;
@@ -170,6 +170,13 @@ public class ComponentEventLinkEncoderMethodAdvice implements MethodAdvice {
 
 			newLink = new LinkImpl(newUrl, false, link.getSecurity(), response,
 					contextPathEncoder, baseURLSource);
+			
+			for (String parameterName : link.getParameterNames()) {
+			    final String[] values = link.getParameterValues(parameterName);
+			    for (String value : values) {
+                    newLink.addParameter(parameterName, value);
+                }
+			}
 
 		}
 

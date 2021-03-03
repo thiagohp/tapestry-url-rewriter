@@ -14,6 +14,7 @@
 
 package org.apache.tapestry5.services;
 
+import org.apache.tapestry5.http.services.Request;
 import org.apache.tapestry5.urlrewriter.URLRewriteContext;
 
 /**
@@ -24,14 +25,14 @@ import org.apache.tapestry5.urlrewriter.URLRewriteContext;
  */
 public interface URLRewriter {
 	/**
-	 * Processes an incoming {@linkplain org.apache.tapestry5.services.Request}.
+	 * Processes an incoming {@linkplain org.apache.tapestry5.http.services.Request}.
 	 * This method must check if they need to rewrite this request. If no, it
 	 * must return the received request unchanged. This method cannot return
 	 * null.
 	 * 
 	 * @param request
-	 *            a {@link org.apache.tapestry5.services.Request}.
-	 * @return request a {@link org.apache.tapestry5.services.Request}. It
+	 *            a {@link org.apache.tapestry5.http.services.Request}.
+	 * @return request a {@link org.apache.tapestry5.http.services.Request}. It
 	 *         cannot be null.
 	 */
 	Request processRequest(Request request);

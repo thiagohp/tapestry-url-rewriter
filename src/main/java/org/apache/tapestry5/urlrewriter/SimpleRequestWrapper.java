@@ -14,7 +14,7 @@
 package org.apache.tapestry5.urlrewriter;
 
 import org.apache.tapestry5.services.DelegatingRequest;
-import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.http.services.Request;
 
 /**
  * Class that wraps a {@linkplain Request}. It delegates all methods except ones
