@@ -4,10 +4,10 @@
 	<groupId>br.com.arsmachina</groupId>
 	<artifactId>tapestry-url-rewriter</artifactId>
 	<name>Tapestry URL Rewriter</name>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<url>https://github.com/thiagohp/tapestry-url-rewriter</url>
 	<properties>
-		<tapestry-version>5.7.0</tapestry-version>
+		<tapestry-version>5.8.7</tapestry-version>
 	</properties>
 	<description>The old URL rewriter API that was deprecated in Tapestry 5.2 and removed in Tapestry 5.3.</description>
 	<dependencies>
