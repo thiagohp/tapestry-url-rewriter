@@ -14,9 +14,9 @@
 
 package org.apache.tapestry5.urlrewriter.webapp.services;
 
-import org.apache.tapestry5.ioc.OrderedConfiguration;
+import org.apache.tapestry5.commons.OrderedConfiguration;
+import org.apache.tapestry5.http.services.Request;
 import org.apache.tapestry5.ioc.annotations.SubModule;
-import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.UrlRewriterModule;
 import org.apache.tapestry5.urlrewriter.IntegrationTests;
 import org.apache.tapestry5.urlrewriter.SimpleRequestWrapper;

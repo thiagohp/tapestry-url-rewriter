@@ -13,7 +13,7 @@
 // limitations under the License.
 package org.apache.tapestry5.urlrewriter;
 
-import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.http.services.Request;
 
 /**
  * Defines an URL rewriting rule. It is executed before any Tapestry request

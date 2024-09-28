@@ -17,6 +17,9 @@ package org.apache.tapestry5.services;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.tapestry5.http.services.Request;
+import org.apache.tapestry5.http.services.Session;
+
 /**
  * Class that wraps an {@link Request}, delegating all its methods to it.
  * 
@@ -220,5 +223,21 @@ public class DelegatingRequest implements Request {
 	public String getRemoteHost() {
 		return request.getRemoteHost();
 	}
+
+    /**
+     * @return
+     * @see org.apache.tapestry5.http.services.Request#getAttributeNames()
+     */
+    public List<String> getAttributeNames() {
+        return request.getAttributeNames();
+    }
+
+    /**
+     * @return
+     * @see org.apache.tapestry5.http.services.Request#isSessionInvalidated()
+     */
+    public boolean isSessionInvalidated() {
+        return request.isSessionInvalidated();
+    }
 
 }

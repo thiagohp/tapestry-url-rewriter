@@ -14,6 +14,7 @@
 
 package org.apache.tapestry5.services;
 
+import org.apache.tapestry5.http.services.Request;
 
 /**
  * Service that implements URL rewriting.

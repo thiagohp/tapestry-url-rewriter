@@ -14,9 +14,10 @@
 
 package org.apache.tapestry5.services;
 
+import org.apache.tapestry5.commons.OrderedConfiguration;
+import org.apache.tapestry5.http.services.RequestFilter;
 import org.apache.tapestry5.internal.services.URLRewriterImpl;
 import org.apache.tapestry5.internal.services.URLRewriterRequestFilter;
-import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 
 /**
